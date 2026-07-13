@@ -82,6 +82,12 @@ partial class MainForm
         this.btnClear.UseVisualStyleBackColor = true;
         this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
 
+        // Wire up digit button click events
+        for (int i = 0; i < 10; i++)
+        {
+            this.btnDigits[i].Click += new System.EventHandler(this.btn_Click);
+        }
+
         // Wire up operator button click events
         this.btnDivide.Click += new System.EventHandler(this.btnOperator_Click);
         this.btnMultiply.Click += new System.EventHandler(this.btnOperator_Click);
@@ -121,6 +127,5 @@ partial class MainForm
         btn.Size = new System.Drawing.Size(size, size);
         btn.Text = text;
         btn.UseVisualStyleBackColor = true;
-        btn.Click += new System.EventHandler(this.btn_Click);
     }
 }

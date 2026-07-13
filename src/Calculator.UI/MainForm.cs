@@ -35,9 +35,9 @@ public partial class MainForm : Form
 
     private void btnOperator_Click(object sender, EventArgs e)
     {
-        if (sender is Button btn)
+        if (sender is Button btn && double.TryParse(txtDisplay.Text, out double value))
         {
-            _firstNumber = double.Parse(txtDisplay.Text);
+            _firstNumber = value;
             _operation = btn.Text;
             _isNewEntry = true;
         }
@@ -45,28 +45,24 @@ public partial class MainForm : Form
 
     private void btnEquals_Click(object sender, EventArgs e)
     {
+        if (string.IsNullOrEmpty(_operation))
+            return;
+
+        if (!double.TryParse(txtDisplay.Text, out double secondNumber))
+            return;
+
         try
         {
-            double secondNumber = double.Parse(txtDisplay.Text);
-            double result = 0;
-
-            switch (_operation)
+            double result = _operation switch
             {
-                case "+":
-                    result = _engine.Add(_firstNumber, secondNumber);
-                    break;
-                case "-":
-                    result = _engine.Subtract(_firstNumber, secondNumber);
-                    break;
-                case "*":
-                    result = _engine.Multiply(_firstNumber, secondNumber);
-                    break;
-                case "/":
-                    result = _engine.Divide(_firstNumber, secondNumber);
-                    break;
-            }
+                "+" => _engine.Add(_firstNumber, secondNumber),
+                "-" => _engine.Subtract(_firstNumber, secondNumber),
+                "*" => _engine.Multiply(_firstNumber, secondNumber),
+                "/" => _engine.Divide(_firstNumber, secondNumber),
+                _ => secondNumber
+            };
 
-            txtDisplay.Text = result.ToString();
+            txtDisplay.Text = result.ToString("G10");
             _isNewEntry = true;
         }
         catch (DivideByZeroException ex)
