@@ -20,4 +20,12 @@ public class CalculatorEngineTests
         var result = engine.Subtract(10, 3);
         Assert.Equal(7, result);
     }
+
+    [Fact]
+    public void Multiply_TwoPositiveNumbers_ReturnsProduct()
+    {
+        var engine = new CalculatorEngine();
+        var result = engine.Multiply(4, 5);
+        Assert.Equal(20, result);
+    }
 }
