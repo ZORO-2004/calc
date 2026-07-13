@@ -28,4 +28,19 @@ public class CalculatorEngineTests
         var result = engine.Multiply(4, 5);
         Assert.Equal(20, result);
     }
+
+    [Fact]
+    public void Divide_TwoPositiveNumbers_ReturnsQuotient()
+    {
+        var engine = new CalculatorEngine();
+        var result = engine.Divide(20, 4);
+        Assert.Equal(5, result);
+    }
+
+    [Fact]
+    public void Divide_ByZero_ThrowsDivideByZeroException()
+    {
+        var engine = new CalculatorEngine();
+        Assert.Throws<DivideByZeroException>(() => engine.Divide(10, 0));
+    }
 }
