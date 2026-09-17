@@ -29,4 +29,17 @@ public static class ScientificFunctions
     public static double Asin(double x, AngleMode mode) => ToDegrees(Math.Asin(x), mode);
     public static double Acos(double x, AngleMode mode) => ToDegrees(Math.Acos(x), mode);
     public static double Atan(double x, AngleMode mode) => ToDegrees(Math.Atan(x), mode);
+
+    public static double Ln(double x) => x <= 0 ? double.NaN : Math.Log(x);
+    public static double Log10(double x) => x <= 0 ? double.NaN : Math.Log10(x);
+    public static double Exp(double x) => Math.Exp(x);
+    public static double TenPow(double x) => Math.Pow(10, x);
+
+    public static double Factorial(double n)
+    {
+        if (n < 0 || n > 170 || n != Math.Floor(n)) return double.NaN;
+        double result = 1;
+        for (int i = 2; i <= (int)n; i++) result *= i;
+        return result;
+    }
 }

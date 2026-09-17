@@ -68,4 +68,37 @@ public class ScientificFunctionsTests
     [Fact]
     public void Asin_OutOfRange_ReturnsNaN()
         => Assert.True(double.IsNaN(ScientificFunctions.Asin(2, AngleMode.Degrees)));
+
+    [Fact]
+    public void Ln_E_ReturnsOne() => Assert.Equal(1, ScientificFunctions.Ln(ScientificFunctions.E), 10);
+
+    [Fact]
+    public void Ln_Zero_ReturnsNaN() => Assert.True(double.IsNaN(ScientificFunctions.Ln(0)));
+
+    [Fact]
+    public void Ln_Negative_ReturnsNaN() => Assert.True(double.IsNaN(ScientificFunctions.Ln(-5)));
+
+    [Fact]
+    public void Log10_Thousand_ReturnsThree() => Assert.Equal(3, ScientificFunctions.Log10(1000), 10);
+
+    [Fact]
+    public void Exp_One_ReturnsE() => Assert.Equal(ScientificFunctions.E, ScientificFunctions.Exp(1), 10);
+
+    [Fact]
+    public void TenPow_Two_Returns100() => Assert.Equal(100, ScientificFunctions.TenPow(2), 10);
+
+    [Fact]
+    public void Factorial_Five_Returns120() => Assert.Equal(120, ScientificFunctions.Factorial(5));
+
+    [Fact]
+    public void Factorial_Zero_ReturnsOne() => Assert.Equal(1, ScientificFunctions.Factorial(0));
+
+    [Fact]
+    public void Factorial_Negative_ReturnsNaN() => Assert.True(double.IsNaN(ScientificFunctions.Factorial(-1)));
+
+    [Fact]
+    public void Factorial_171_ReturnsNaN() => Assert.True(double.IsNaN(ScientificFunctions.Factorial(171)));
+
+    [Fact]
+    public void Factorial_NonInteger_ReturnsNaN() => Assert.True(double.IsNaN(ScientificFunctions.Factorial(5.5)));
 }
