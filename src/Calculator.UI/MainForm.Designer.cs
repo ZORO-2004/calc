@@ -97,13 +97,13 @@ partial class MainForm
 
         int sciW = 52, sciH = 52, sciSp = 4;
         string[,] sci = {
-            { "MS", "ms" }, { "MR", "mr" }, { "MC", "mc" }, { "M+", "madd" },
-            { "π", "pi" }, { "e", "e" }, { "DEG", "degrees" }, { "", "" },
-            { "sin", "sin" }, { "cos", "cos" }, { "tan", "tan" }, { "^", "power" },
-            { "asin", "asin" }, { "acos", "acos" }, { "atan", "atan" }, { "±", "sign" },
-            { "√", "sqrt" }, { "∛", "cbrt" }, { "x²", "square" }, { "x³", "cube" },
-            { "ln", "ln" }, { "log", "log10" }, { "eˣ", "exp" }, { "10ˣ", "tenpow" },
-            { "n!", "factorial" }, { "1/x", "recip" }, { "CE", "ce" }, { "C", "c" },
+            { "MS", "ms", "MR", "mr", "MC", "mc", "M+", "madd" },
+            { "π", "pi", "e", "e", "DEG", "degrees", "", "" },
+            { "sin", "sin", "cos", "cos", "tan", "tan", "^", "power" },
+            { "asin", "asin", "acos", "acos", "atan", "atan", "±", "sign" },
+            { "√", "sqrt", "∛", "cbrt", "x²", "square", "x³", "cube" },
+            { "ln", "ln", "log", "log10", "eˣ", "exp", "10ˣ", "tenpow" },
+            { "n!", "factorial", "1/x", "recip", "CE", "ce", "C", "c" },
         };
         for (int r = 0; r < 7; r++)
         {
