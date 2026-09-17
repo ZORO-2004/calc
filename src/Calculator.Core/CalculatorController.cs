@@ -240,7 +240,6 @@ public sealed class CalculatorController
         _display = NumberFormatter.Format(_memory.Value);
         _isNewEntry = true;
         _lastWasEquals = false;
-        _memory = null;
     }
 
     public void MemoryClear() => _memory = null;

@@ -6,7 +6,7 @@ namespace Calculator.Tests;
 public class CalculatorControllerTests
 {
     private static readonly CalculatorController C = new();
-    private static void Clean() => C.Clear();
+    private static void Clean() { C.Clear(); C.MemoryClear(); }
 
     [Fact]
     public void Digit_Initial_ShowsZero()
