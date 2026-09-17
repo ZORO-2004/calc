@@ -15,4 +15,18 @@ public static class ScientificFunctions
     public static double Cbrt(double x) => Math.Cbrt(x);
 
     public static double Reciprocal(double x) => x == 0 ? double.NaN : 1.0 / x;
+
+    public static double ToRadians(double x, AngleMode mode) =>
+        mode == AngleMode.Degrees ? x * Math.PI / 180.0 : x;
+
+    public static double ToDegrees(double x, AngleMode mode) =>
+        mode == AngleMode.Degrees ? x * 180.0 / Math.PI : x;
+
+    public static double Sin(double x, AngleMode mode) => Math.Sin(ToRadians(x, mode));
+    public static double Cos(double x, AngleMode mode) => Math.Cos(ToRadians(x, mode));
+    public static double Tan(double x, AngleMode mode) => Math.Tan(ToRadians(x, mode));
+
+    public static double Asin(double x, AngleMode mode) => ToDegrees(Math.Asin(x), mode);
+    public static double Acos(double x, AngleMode mode) => ToDegrees(Math.Acos(x), mode);
+    public static double Atan(double x, AngleMode mode) => ToDegrees(Math.Atan(x), mode);
 }

@@ -34,4 +34,38 @@ public class ScientificFunctionsTests
 
     [Fact]
     public void Pi_Constant_IsMathPi() => Assert.Equal(Math.PI, ScientificFunctions.Pi);
+
+    [Theory]
+    [InlineData(30, 0.5)]
+    [InlineData(90, 1)]
+    public void Sin_Degrees_ReturnsExpected(double angle, double expected)
+        => Assert.Equal(expected, ScientificFunctions.Sin(angle, AngleMode.Degrees), 10);
+
+    [Fact]
+    public void Cos_Degrees_60_ReturnsHalf()
+        => Assert.Equal(0.5, ScientificFunctions.Cos(60, AngleMode.Degrees), 10);
+
+    [Fact]
+    public void Tan_Degrees_45_ReturnsOne()
+        => Assert.Equal(1, ScientificFunctions.Tan(45, AngleMode.Degrees), 10);
+
+    [Fact]
+    public void Sin_Radians_PiOver2_ReturnsOne()
+        => Assert.Equal(1, ScientificFunctions.Sin(ScientificFunctions.Pi / 2, AngleMode.Radians), 10);
+
+    [Fact]
+    public void Asin_Degrees_ReturnsDegrees()
+        => Assert.Equal(30, ScientificFunctions.Asin(0.5, AngleMode.Degrees), 10);
+
+    [Fact]
+    public void Acos_Degrees_ReturnsDegrees()
+        => Assert.Equal(60, ScientificFunctions.Acos(0.5, AngleMode.Degrees), 10);
+
+    [Fact]
+    public void Atan_Degrees_ReturnsDegrees()
+        => Assert.Equal(45, ScientificFunctions.Atan(1, AngleMode.Degrees), 10);
+
+    [Fact]
+    public void Asin_OutOfRange_ReturnsNaN()
+        => Assert.True(double.IsNaN(ScientificFunctions.Asin(2, AngleMode.Degrees)));
 }
